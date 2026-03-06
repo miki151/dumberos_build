@@ -33,18 +33,18 @@ Add a swap file if you don't have a swap partition active
 
 Create a new working directory for your LineageOS build and navigate to it:
 
-    mkdir dumbdroid_build; cd dumbdroid_build
+    mkdir dumberos_build; cd dumberos_build
 
 Initialize your LineageOS workspace:
 
-    repo init -u https://github.com/miki151/dumbdroid_manifests.git --git-lfs
+    repo init -u https://github.com/miki151/dumberos_manifests.git --git-lfs
 
 Clone both this and the patches repos:
 
-    git clone https://github.com/miki151/dumbdroid_build lineage_build_unified
-    git clone https://github.com/miki151/dumbdroid_patches lineage_patches_unified
+    git clone https://github.com/miki151/dumberos_build lineage_build_unified
+    git clone https://github.com/miki151/dumberos_patches lineage_patches_unified
 
-Finally, start the build script - for example, to build all supported Dumbdroid variants:
+Finally, start the build script - for example, to build all supported Dumber OS variants:
 
     bash lineage_build_unified/buildbot_unified.sh treble DG31 DG30 DV31 DV30
 
