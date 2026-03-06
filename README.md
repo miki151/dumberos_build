@@ -1,5 +1,5 @@
 
-# Building Dumbdroid GSIs #
+# Building Dumber OS GSIs #
 
 It is recommended to have at least 32GB of RAM + 32GB of swap, and at least 300GB of free disk space! Building from scratch will take around two hours on a high end PC.
 
@@ -29,7 +29,7 @@ Add a swap file if you don't have a swap partition active
     sudo mkswap /swapfile
     sudo swapon /swapfile
 
-## Build Dumbdroid ##
+## Build Dumber OS ##
 
 Create a new working directory for your LineageOS build and navigate to it:
 
