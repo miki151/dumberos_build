@@ -1,5 +1,5 @@
 
-# Building Dumber OS GSIs #
+# Building DumberOS GSIs #
 
 It is recommended to have at least 32GB of RAM + 32GB of swap, and at least 300GB of free disk space! Building from scratch will take around two hours on a high end PC.
 
@@ -29,7 +29,7 @@ Add a swap file if you don't have a swap partition active
     sudo mkswap /swapfile
     sudo swapon /swapfile
 
-## Build Dumber OS ##
+## Build DumberOS ##
 
 Create a new working directory for your LineageOS build and navigate to it:
 
@@ -44,7 +44,7 @@ Clone both this and the patches repos:
     git clone https://github.com/miki151/dumberos_build lineage_build_unified
     git clone https://github.com/miki151/dumberos_patches lineage_patches_unified
 
-Finally, start the build script - for example, to build all supported Dumber OS variants:
+Finally, start the build script - for example, to build all supported DumberOS variants:
 
     bash lineage_build_unified/buildbot_unified.sh treble DG31 DG30 DV31 DV30
 
