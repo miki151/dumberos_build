@@ -151,9 +151,9 @@ else
     prep_build
     echo "Applying patches"
     prep_${MODE}
-    apply_patches patches_platform
-    apply_patches patches_${MODE}
-    apply_patches patches_dumbdroid
+#    apply_patches patches_platform
+#    apply_patches patches_${MODE}
+#    apply_patches patches_dumbdroid
     finalize_${MODE}
     echo ""
 fi
