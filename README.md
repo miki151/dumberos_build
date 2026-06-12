@@ -29,7 +29,7 @@ Add a swap file if you don't have a swap partition active
     sudo mkswap /swapfile
     sudo swapon /swapfile
 
-## Build DumberOS ##
+## Prepare for building ##
 
 Create a new working directory for your LineageOS build and navigate to it:
 
@@ -39,19 +39,33 @@ Initialize your LineageOS workspace:
 
     repo init -u https://github.com/miki151/dumberos_manifests.git --git-lfs
 
-Clone both this and the patches repos:
+Download the source code:
+                                
+    repo sync -c
 
-    git clone https://github.com/miki151/dumberos_build lineage_build_unified
-    git clone https://github.com/miki151/dumberos_patches lineage_patches_unified
+Set up the build environment. Optionally replace vanilla31 with another variant: vanilla30, gapps31, gapps30. Choose the "30" if you're building for the Qin F21 pro, use "31" otherwise.
 
-Finally, start the build script - for example, to build all supported DumberOS variants:
+    . build/envsetup.sh 
+    lunch lineage_vanilla31-ap2a-userdebug 
 
-    bash lineage_build_unified/buildbot_unified.sh treble DG31 DG30 DV31 DV30
+## Build an image signed with test keys ##
 
-In case of RESOURCE_EXHAUSTED or other quota errors, just give it another run. Afterwards, add the 'nosync' option to buildbot_unified.sh, to avoid syncing every time you build:
+    DISABLE_STUB_VALIDATION=true make systemimage
+    
+## Build a self-signed image ##
 
-    bash lineage_build_unified/buildbot_unified.sh treble nosync ...
+Generate new private keys if you haven't already:
 
-Be sure to update the cloned repos from time to time!
+    bash scripts/gen_cert.sh
 
----
+Build and sign the image:
+
+    DISABLE_STUB_VALIDATION=true make target-files-package otatools
+    bash scripts/sign_target_files.sh $OUT/signed-target_files.zip
+    unzip -joq $OUT/signed-target_files.zip IMAGES/system.img -d $OUT
+
+## Image location
+
+Grab your fresh DumberOS image:
+
+    ls $OUT/system.img
