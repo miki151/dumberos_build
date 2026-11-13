@@ -116,8 +116,10 @@ build_device() {
 
 build_treble() {
     case "${1}" in
+        ("DAG30") TARGET=a64_gapps30;;
         ("DG30") TARGET=gapps30;;
         ("DG31") TARGET=gapps31;;
+        ("DAV30") TARGET=a64_vanilla30;;
         ("DV30") TARGET=vanilla30;;
         ("DV31") TARGET=vanilla31;;
         (*) echo "Invalid target - exiting"; exit 1;;
