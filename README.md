@@ -43,29 +43,16 @@ Download the source code:
                                 
     repo sync -c
 
-Set up the build environment. Optionally replace vanilla31 with another variant: vanilla30, gapps31, gapps30. Choose the "30" if you're building for the Qin F21 pro, use "31" otherwise.
-
-    . build/envsetup.sh 
-    lunch lineage_vanilla31-ap2a-userdebug 
-
-## Build an image signed with test keys ##
-
-    DISABLE_STUB_VALIDATION=true make systemimage
-    
-## Build a self-signed image ##
-
 Generate new private keys if you haven't already:
 
     bash scripts/gen_cert.sh
 
-Build and sign the image:
+Build a chosen variant of DumberOS. Choose the "30" if you're building for the Qin F21 pro, use "31" otherwise.
 
-    DISABLE_STUB_VALIDATION=true make target-files-package otatools
-    bash scripts/sign_target_files.sh $OUT/signed-target_files.zip
-    unzip -joq $OUT/signed-target_files.zip IMAGES/system.img -d $OUT
+    bash scripts/build_all_images.sh [vanilla30|vanilla31|gapps30|gapps31]
 
 ## Image location
 
 Grab your fresh DumberOS image:
 
-    ls $OUT/system.img
+    ls ~/build-ouput/dumber_os*
