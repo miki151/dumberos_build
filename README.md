@@ -31,7 +31,7 @@ Add a swap file if you don't have a swap partition active
 
 ## Prepare for building ##
 
-Create a new working directory for your LineageOS build and navigate to it:
+Create a new working directory for your DumberOS build and navigate to it:
 
     mkdir dumberos_build; cd dumberos_build
 
