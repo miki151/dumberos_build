@@ -35,7 +35,7 @@ Create a new working directory for your DumberOS build and navigate to it:
 
     mkdir dumberos_build; cd dumberos_build
 
-Initialize your LineageOS workspace:
+Initialize repo
 
     repo init -u https://github.com/miki151/dumberos_manifests.git --git-lfs
 
